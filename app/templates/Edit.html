@@ -18,12 +18,12 @@
     <div class="col-md-4">
     {#        #Form#}
 
-<form action="/insert"method="POST">
+<form action="/update/{{ ll.id }}"method="POST">
     {% csrf_token %}
 
-    <input class="form-control mt-5" name="name" placeholder=" Name">
-    <input class="form-control mt-5" name="email" placeholder=" email">
-    <input class="form-control mt-5"name="school" placeholder=" school">
+    <input class="form-control mt-5" name="name" placeholder=" Name" value="{{ m.name }}">
+    <input value="{{ m.email }}" class="form-control mt-5" name="email" placeholder=" email">
+    <input  value="{{ m.school }}" class="form-control mt-5"name="school" placeholder=" school">
     <input  class="form-control mt-5 btn btn-success "type="submit"value="submit">
 
 </form>

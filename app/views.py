@@ -22,7 +22,19 @@ def insert(request):
         # print(name, school)
         return HttpResponse("success")
 
+
 def people(request):
-    d=People.objects.all()
+    d = People.objects.all()
     context = {"data": d}
-    return render(request,'People.html',context)
+    return render(request, 'People.html', context)
+
+
+def delete(request, id):
+    dd = People.objects.get(id=id)
+    dd.delete()
+    return HttpResponse("Delete successful")
+
+
+def update(request, id):
+    m = People.objects.get(id=id)
+    return render(request,'Edit.html',{"m":m})
